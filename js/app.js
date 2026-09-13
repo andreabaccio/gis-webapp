@@ -52,12 +52,9 @@ const layerConfig = {
 function initializeMap() {
     map = L.map('map').setView([20, 10], 3);
 
-    // Add OpenStreetMap tiles (works offline with local tiles if needed)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-        maxZoom: 19
-    }).addTo(map);
-
+    // No external tiles - just plain map background
+    // The GeoJSON data will be displayed on top
+    
     // Add mouse move listener for coordinates
     map.on('mousemove', updateCoordinates);
     map.on('zoomend', updateCoordinates);
