@@ -1,0 +1,316 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #003d7a 0%, #005a9c 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.btn-export {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-export:hover {
+    background: #218838;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+    position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: white;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.panel-header {
+    background: #003d7a;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.panel-header h2 {
+    margin: 0;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .btn-close {
+        display: block;
+    }
+}
+
+/* Panel Sections */
+.panel-section {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section-title {
+    display: block;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Country Selection */
+.country-dropdown {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.country-dropdown:focus {
+    outline: none;
+    border-color: #003d7a;
+    box-shadow: 0 0 4px rgba(0, 61, 122, 0.3);
+}
+
+.btn-select-location {
+    width: 100%;
+    background: #003d7a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-select-location:hover {
+    background: #005a9c;
+}
+
+.btn-select-location:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Layer Items */
+.layer-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    margin: 5px 0;
+}
+
+.layer-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #003d7a;
+}
+
+.layer-item label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Legend */
+.legend-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Map Container */
+.map-container {
+    flex: 1;
+    background: #e0e0e0;
+    position: relative;
+}
+
+.map-container #map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Coordinates Display */
+.coordinates-display {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 500;
+    min-width: 200px;
+}
+
+.coord-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+}
+
+.coord-label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #666;
+}
+
+.coord-value {
+    color: #003d7a;
+    font-weight: 500;
+}
+
+/* Toggle Sidebar Button */
+.btn-toggle-sidebar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 998;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-toggle-sidebar:hover {
+    background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+    .btn-toggle-sidebar {
+        display: block;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .coordinates-display {
+        bottom: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 8px 10px;
+        min-width: auto;
+    }
+}
+
+/* Leaflet Custom Styles */
+.leaflet-control-container {
+    z-index: 400;
+}
+
+.leaflet-top.leaflet-right {
+    top: 70px;
+    right: 20px;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
