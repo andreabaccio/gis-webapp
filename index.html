@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Web App Viewer - Catalogo Geografico</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <h1>Web App Viewer - Catalogo Geografico</h1>
+        </div>
+        <div class="header-right">
+            <button id="exportBtn" class="btn-export">📊 Export XLS</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar - Layer Panel -->
+        <div class="sidebar">
+            <div class="panel-header">
+                <h2>Elenco layer</h2>
+                <button class="btn-close" id="closeSidebar">×</button>
+            </div>
+
+            <!-- Country Selection -->
+            <div class="panel-section">
+                <label class="section-title">SELEZIONE PAESE</label>
+                <select id="countrySelect" class="country-dropdown">
+                    <option value="">-- Seleziona un paese --</option>
+                </select>
+                <button id="selectByLocationBtn" class="btn-select-location">🔍 Select by Location</button>
+            </div>
+
+            <!-- Base Map -->
+            <div class="panel-section">
+                <label class="section-title">MAPPA DI SFONDO</label>
+                <div class="layer-item">
+                    <input type="checkbox" id="basemapToggle" checked>
+                    <label for="basemapToggle">Basemap</label>
+                </div>
+            </div>
+
+            <!-- Vector Layers -->
+            <div class="panel-section">
+                <label class="section-title">LAYER VETTORIALI</label>
+                <div class="layer-item">
+                    <input type="checkbox" id="countryToggle" checked>
+                    <label for="countryToggle">Confini Nazionali</label>
+                </div>
+                <div class="layer-item">
+                    <input type="checkbox" id="productsToggle" checked>
+                    <label for="productsToggle">Coverage (Products)</label>
+                </div>
+                <div class="layer-item">
+                    <input type="checkbox" id="placesToggle">
+                    <label for="placesToggle">Città (Places)</label>
+                </div>
+                <div class="layer-item">
+                    <input type="checkbox" id="airportsToggle">
+                    <label for="airportsToggle">Aeroporti</label>
+                </div>
+                <div class="layer-item">
+                    <input type="checkbox" id="mappingToggle">
+                    <label for="mappingToggle">Mapping</label>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="panel-section">
+                <label class="section-title">LEGENDA</label>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #1f77b4;"></span>
+                    <span>Confini Nazionali</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #ff7f0e;"></span>
+                    <span>Coverage (Products)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #2ca02c;"></span>
+                    <span>Città</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #d62728;"></span>
+                    <span>Aeroporti</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #9467bd;"></span>
+                    <span>Mapping</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map" class="map-container"></div>
+
+        <!-- Coordinates Display (Bottom Right) -->
+        <div class="coordinates-display">
+            <div class="coord-item">
+                <span class="coord-label">Lat:</span>
+                <span class="coord-value" id="latValue">-</span>
+            </div>
+            <div class="coord-item">
+                <span class="coord-label">Lon:</span>
+                <span class="coord-value" id="lonValue">-</span>
+            </div>
+            <div class="coord-item">
+                <span class="coord-label">Zoom:</span>
+                <span class="coord-value" id="zoomValue">-</span>
+            </div>
+        </div>
+
+        <!-- Toggle Sidebar Button -->
+        <button class="btn-toggle-sidebar" id="toggleSidebar">☰</button>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- SheetJS for XLS export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/export.js"></script>
+</body>
+</html>
